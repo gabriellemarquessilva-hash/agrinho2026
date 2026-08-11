@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroSustentável // CYBER-GRID</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones externos (FontAwesome) -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- CABEÇALHO & MENU RESPONSIVO -->
+    <header>
+        <div class="logo">AGRO//<span>SYSTEM</span></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+            <i class="fas fa-code-branch"></i>
+        </button>
+        <nav id="navMenu">
+            <a href="#home">// INÍCIO</a>
+            <a href="#producao">// PRODUÇÃO</a>
+            <a href="#sustentabilidade">// SUSTENTABILIDADE</a>
+            <a href="#desafios">// DESAFIOS</a>
+            <a href="#solucoes">// SOLUÇÕES</a>
+            <a href="#quiz">// PROTOCOLOS</a>
+            <a href="#contato">// CONEXÃO</a>
+        </nav>
+    </header>
+
+    <!-- BANNER PRINCIPAL (HERO) -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>CULTIVANDO O AMANHÃ</h1>
+            <p>Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?</p>
+            <a href="#quiz" class="btn-principal">INICIAR TESTE DE DIRETRIZ</a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 1: PRODUÇÃO AGRÍCOLA -->
+    <section id="producao" class="container">
+        <h2>[01] Produção Agrícola & Economia</h2>
+        <div class="grid-2">
+            <div>
+                <p>O agronegócio é o motor da economia, responsável por cerca de 1/4 do PIB nacional. Ele garante a segurança alimentar global e gera milhões de empregos, impulsionado pela inserção constante de tecnologia de ponta no campo.</p>
+                <div class="grafico-placeholder">
+                    <i class="fas fa-terminal fa-2x"></i>
+                    <p>DATAFEED: [Crescimento do PIB vs Produtividade Tecnológica]</p>
+                </div>
+            </div>
+            <div class="cards-tecnologia">
+                <div class="card">
+                    <i class="fas fa-satellite"></i>
+                    <h3>Agricultura de Precisão</h3>
+                    <p>Uso de sensores e GPS para aplicação exata de insumos na lavoura.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-drone"></i>
+                    <h3>Drones Agrícolas</h3>
+                    <p>Monitoramento aéreo de pragas, falhas e demarcação ambiental.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: SUSTENTABILIDADE -->
+    <section id="sustentabilidade" class="bg-alternativo">
+        <div class="container">
+            <h2>[02] Sustentabilidade no Campo</h2>
+            <div class="grid-3">
+                <div class="card-verde">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Conservação do Solo</h3>
+                    <p>Práticas de plantio direto mantêm a umidade e os nutrientes da terra.</p>
+                </div>
+                <div class="card-verde">
+                    <i class="fas fa-tint"></i>
+                    <h3>Irrigação Inteligente</h3>
+                    <p>Sistemas automatizados que evitam o desperdício de recursos hídricos.</p>
+                </div>
+                <div class="card-verde">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>Energias Limpas</h3>
+                    <p>Fazendas movidas a energia solar e biomassa gerada por resíduos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: DESAFIOS AMBIENTAIS -->
+    <section id="desafios" class="container">
+        <h2>[03] Desafios Ambientais Urgentes</h2>
+        <div class="grid-3">
+            <div class="card-alerta">
+                <i class="fas fa-tree"></i>
+                <h3>Desmatamento</h3>
+                <p>A expansão ilegal ameaça ecossistemas e a biodiversidade nativa.</p>
+            </div>
+            <div class="card-alerta">
+                <i class="fas fa-faucet"></i>
+                <h3>Uso da Água</h3>
+                <p>A escassez hídrica exige métodos eficientes contra o esgotamento de rios.</p>
+            </div>
+            <div class="card-alerta">
+                <i class="fas fa-cloud-sun"></i>
+                <h3>Emissões de Carbono</h3>
+                <p>A agropecuária convencional acelera o aquecimento global se não manejada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4: SOLUÇÕES E FUTURO -->
+    <section id="solucoes" class="bg-cyber-dark">
+        <div class="container text-center">
+            <h2>[04] Agricultura Regenerativa</h2>
+            <p>O futuro está na ILPF (Integração Lavoura-Pecuária-Floresta) e no uso de defensivos biológicos. Recuperar solos degradados e sequestrar carbono transformam o produtor rural em um guardião ambiental.</p>
+        </div>
+    </section>
+
+    <!-- DESAFIO COMPLEMENTAR: QUIZ E CALCULADORA -->
+    <section id="quiz" class="container">
+        <h2>[05] Terminais Interativos</h2>
+        <div class="grid-2">
+            <!-- Mini Quiz -->
+            <div class="box-interativo">
+                <h3><i class="fas fa-lightbulb"></i> Quiz Sustentável</h3>
+                <p>A agricultura de precisão aumenta ou reduz o uso de defensivos químicos?</p>
+                <button onclick="verificarQuiz(true)" class="btn-opcao">Aumenta</button>
+                <button onclick="verificarQuiz(false)" class="btn-opcao">Reduz (Correto)</button>
+                <p id="resultadoQuiz" class="resultado"></p>
+            </div>
+
+            <!-- Calculadora Carbono -->
+            <div class="box-interativo">
+                <h3><i class="fas fa-calculator"></i> Simulador de Impacto</h3>
+                <label for="hectares">Área cultivada (Hectares):</label>
+                <input type="number" id="hectares" placeholder="SYS_DATA: 50">
+                <button onclick="calcularImpacto()" class="btn-principal">Simular Sequestro de Carbono</button>
+                <p id="resultadoCalculo" class="resultado"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: CONTATO & CONSCIENTIZAÇÃO -->
+    <section id="contato" class="bg-alternativo">
+        <div class="container pequeno">
+            <h2>[06] Junte-se ao Movimento</h2>
+            <form id="formContato">
+                <input type="text" placeholder="Nome do Operador" required>
+                <input type="email" placeholder="Endereço de Link (E-mail)" required>
+                <textarea placeholder="Como você pretende aplicar a sustentabilidade no Grid?" required></textarea>
+                <button type="submit" class="btn-principal">ENVIAR COORDENADAS</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>// SYSTEM_OVERRIDE &copy; 2026 AgroSustentável. Protocolo Educativo Ativo.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
 

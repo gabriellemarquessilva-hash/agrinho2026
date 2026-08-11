@@ -1,1 +1,295 @@
+/* RESET DE ESTILOS & FONTES CYBER */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+
+:root {
+    --bg-main: #0a0a12;        /* Preto Azulado Profundo */
+    --bg-card: #121225;        /* Cinza Escuro Neon */
+    --cyber-cyan: #00ffff;     /* Ciano Elétrico */
+    --cyber-green: #39ff14;    /* Verde Ácido Neon */
+    --cyber-magenta: #ff007f;  /* Rosa/Vermelho Neon */
+    --text-color: #d1d1e0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container.pequeno {
+    max-width: 600px;
+}
+
+/* HEADER CYBERPUNK */
+header {
+    background: rgba(10, 10, 18, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--cyber-cyan);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--cyber-cyan);
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--cyber-cyan);
+}
+
+.logo span {
+    color: var(--cyber-green);
+    text-shadow: 0 0 10px var(--cyber-green);
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    color: var(--cyber-cyan);
+    text-shadow: 0 0 8px var(--cyber-cyan);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--cyber-cyan);
+    cursor: pointer;
+}
+
+/* HERO BANNER - ESTILO MATRIX/CYBER */
+.hero {
+    position: relative;
+    background: linear-gradient(rgba(10,10,18,0.7), rgba(10,10,18,0.9)), url('https://unsplash.com') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    margin-top: 60px;
+    border-bottom: 3px solid var(--cyber-magenta);
+}
+
+/* Efeito de linhas de scan na tela */
+.hero::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.hero h1 {
+    font-size: 54px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 20px var(--cyber-cyan), 0 0 40px var(--cyber-cyan);
+    letter-spacing: 3px;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--cyber-green);
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+/* BOTÕES NEON */
+.btn-principal {
+    background-color: transparent;
+    color: var(--cyber-cyan);
+    padding: 12px 30px;
+    border: 2px solid var(--cyber-cyan);
+    border-radius: 0px; /* Cantos retos cyberpunk */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.btn-principal:hover {
+    background-color: var(--cyber-cyan);
+    color: var(--bg-main);
+    box-shadow: 0 0 20px var(--cyber-cyan);
+}
+
+.btn-opcao {
+    background: #1a1a3a;
+    border: 1px solid var(--cyber-cyan);
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn-opcao:hover {
+    box-shadow: 0 0 10px var(--cyber-cyan);
+}
+
+/* GRIDS & LAYOUTS */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.bg-alternativo { background-color: #0d0d1a; border-top: 1px solid #1f1f3d; border-bottom: 1px solid #1f1f3d; }
+.bg-cyber-dark { background-color: #05050a; border-left: 4px solid var(--cyber-green); }
+.text-center { text-align: center; }
+
+h2 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    border-left: 3px solid var(--cyber-cyan);
+    padding-left: 15px;
+}
+
+/* CARDS ALTERADOS PARA ESTILO TERMINAL HACKER */
+.card, .card-verde, .card-alerta {
+    padding: 30px;
+    background: var(--bg-card);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #1f1f3d;
+}
+
+/* Efeitos individuais de brilho */
+.card { border-top: 3px solid var(--cyber-cyan); }
+.card:hover { transform: translateY(-5px); box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); }
+.card i { color: var(--cyber-cyan); font-size: 40px; margin-bottom: 15px; }
+
+.card-verde { border-top: 3px solid var(--cyber-green); }
+.card-verde:hover { transform: translateY(-5px); box-shadow: 0 0 15px rgba(57, 255, 20, 0.4); }
+.card-verde i { color: var(--cyber-green); font-size: 40px; margin-bottom: 15px; }
+
+.card-alerta { border-top: 3px solid var(--cyber-magenta); }
+.card-alerta:hover { transform: translateY(-5px); box-shadow: 0 0 15px rgba(255, 0, 127, 0.4); }
+.card-alerta i { color: var(--cyber-magenta); font-size: 40px; margin-bottom: 15px; }
+
+/* TERMINAIS INTERATIVOS & FORMULÁRIOS */
+.box-interativo {
+    background: var(--bg-card);
+    padding: 30px;
+    border: 1px solid var(--cyber-cyan);
+    box-shadow: inset 0 0 10px rgba(0,255,255,0.1);
+}
+
+.box-interativo h3 {
+    color: var(--cyber-cyan);
+    margin-bottom: 15px;
+}
+
+.resultado {
+    margin-top: 15px;
+    font-weight: bold;
+    text-shadow: 0 0 5px currentColor;
+}
+
+.grafico-placeholder {
+    background: #020205;
+    border: 1px dashed var(--cyber-cyan);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    color: var(--cyber-cyan);
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #05050a;
+    border: 1px solid #1f1f3d;
+    color: #fff;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--cyber-cyan);
+    box-shadow: 0 0 10px var(--cyber-cyan);
+}
+
+footer {
+    background: #020205;
+    color: #666;
+    text-align: center;
+    padding: 35px;
+    border-top: 1px solid #121225;
+}
+
+/* RESPONSIVIDADE (MOBILE) */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-main);
+        padding: 20px;
+        border-bottom: 2px solid var(--cyber-cyan);
+    }
+    nav.active { display: flex; }
+    nav a { margin: 10px 0; padding-left: 10px; border-left: 2px solid var(--cyber-cyan); }
+    .hero h1 { font-size: 36px; }
+}
 

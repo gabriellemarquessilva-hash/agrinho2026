@@ -1,18 +1,24 @@
-// Garante que o código rode apenas após o HTML carregar completamente
+/**
+ * AGRO//SYSTEM - PROTOCOLO JAVASCRIPT AGRINHO 2026
+ * Controla a interatividade e dinamismo do Grid sem códigos inline.
+ */
+
+// Aguarda todo o HTML carregar antes de executar as funções
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("AGRO//SYSTEM: Grid de interatividade ativado.");
+    console.log("AGRO//SYSTEM: Grid de interatividade ativado com sucesso.");
     
-    // Inicializa todas as funções de comportamento do site
-    configurarMenuResponsivo();
-    configurarQuizSustentavel();
-    configurarCalculadoraCarbono();
-    configurarFormularioContato();
+    // Inicialização dos módulos do site
+    inicializarMenuResponsivo();
+    inicializarQuizSustentavel();
+    inicializarCalculadoraCarbono();
+    inicializarFormularioContato();
 });
 
 /**
- * 1. MENU RESPONSIVO (INTERATIVIDADE)
+ * 1. INTERATIVIDADE: Menu Responsivo (Mobile)
+ * Abre e fecha as opções do menu ao clicar no ícone de ramificação
  */
-function configurarMenuResponsivo() {
+function inicializarMenuResponsivo() {
     const botaoMenu = document.getElementById("menuToggle");
     const menuNavegacao = document.getElementById("navMenu");
 
@@ -20,86 +26,103 @@ function configurarMenuResponsivo() {
         botaoMenu.addEventListener("click", () => {
             menuNavegacao.classList.toggle("ativo");
         });
-    }
-}
-
-/**
- * 2. QUIZ SUSTENTÁVEL (CORREÇÃO DE EVENTOS INLINE)
- */
-function configurarQuizSustentavel() {
-    // Seleciona os botões de opção dentro do bloco do quiz
-    const botoesOpcao = document.querySelectorAll("#quiz .box-interativo:nth-child(1) .btn-opcao");
-    const caixaResultado = document.getElementById("resultadoQuiz");
-
-    if (botoesOpcao.length && caixaResultado) {
-        // O primeiro botão é o "Aumenta" (Incorreto)
-        botoesOpcao[0].addEventListener("click", () => {
-            caixaResultado.textContent = "❌ ACESSO NEGADO: Resposta incorreta. A tecnologia otimiza a aplicação e reduz o desperdício.";
-            caixaResultado.style.color = "#ff007f"; // Rosa/Vermelho Neon
-        });
-
-        // O segundo botão é o "Reduz (Correto)"
-        botoesOpcao[1].addEventListener("click", () => {
-            caixaResultado.textContent = "🟢 SUCESSO NO LOG: Resposta correta! Sensores e GPS evitam aplicações desnecessárias.";
-            caixaResultado.style.color = "#39ff14"; // Verde Ácido Neon
+        
+        // Fecha o menu automaticamente ao clicar em qualquer link dele
+        const linksMenu = menuNavegacao.querySelectorAll("a");
+        linksMenu.forEach(link => {
+            link.addEventListener("click", () => {
+                menuNavegacao.classList.remove("ativo");
+            });
         });
     }
 }
 
 /**
- * 3. CALCULADORA DE CARBONO (SIMULADOR DE IMPACTO)
+ * 2. COMPORTAMENTO: Quiz Sustentável (Monitor de Cliques)
+ * Captura os cliques nos botões de opções do quiz e exibe o feedback visual
  */
-function configurarCalculadoraCarbono() {
+function inicializarQuizSustentavel() {
+    // Captura os botões de opção dentro do bloco de quiz
+    const botoes = document.querySelectorAll("#quiz .box-interativo:nth-child(1) .btn-opcao");
+    const displayResultado = document.getElementById("resultadoQuiz");
+
+    if (botoes.length >= 2 && displayResultado) {
+        const botaoAumenta = botoes[0];
+        const botaoReduz = botoes[1];
+
+        // Ação para a resposta incorreta (Aumenta)
+        botaoAumenta.addEventListener("click", () => {
+            displayResultado.textContent = "❌ ACESSO NEGADO: Resposta incorreta. A tecnologia otimiza a aplicação e evita desperdícios.";
+            displayResultado.style.color = "#ff007f"; // Rosa/Vermelho Cyber-Neon
+        });
+
+        // Ação para a resposta correta (Reduz)
+        botaoReduz.addEventListener("click", () => {
+            displayResultado.textContent = "🟢 SUCESSO NO LOG: Resposta correta! Sensores e GPS mapeiam o solo e reduzem insumos.";
+            displayResultado.style.color = "#39ff14"; // Verde Ácido Cyber-Neon
+        });
+    }
+}
+
+/**
+ * 3. INTELIGÊNCIA: Simulador de Sequestro de Carbono
+ * Processa a entrada de dados do usuário e realiza o cálculo matemático do impacto
+ */
+function inicializarCalculadoraCarbono() {
     const botaoCalcular = document.querySelector("#quiz .box-interativo:nth-child(2) .btn-principal");
     const inputHectares = document.getElementById("hectares");
-    const caixaResultado = document.getElementById("resultadoCalculo");
+    const displayResultado = document.getElementById("resultadoCalculo");
 
-    if (botaoCalcular && inputHectares && caixaResultado) {
+    if (botaoCalcular && inputHectares && displayResultado) {
         botaoCalcular.addEventListener("click", () => {
             const hectares = parseFloat(inputHectares.value);
 
+            // Validação de segurança para dados inconsistentes
             if (isNaN(hectares) || hectares <= 0) {
-                caixaResultado.textContent = "⚠️ ERRO_SYS: Insira uma quantidade válida de hectares.";
-                caixaResultado.style.color = "#ff007f";
+                displayResultado.textContent = "⚠️ ERRO_SYS: Insira um número de hectares válido.";
+                displayResultado.style.color = "#ff007f";
                 return;
             }
 
-            // Cálculo simulado: Média de 4 toneladas de CO2 sequestradas por hectare/ano em ILPF
-            const carbonoSequestrado = (hectares * 4).toFixed(1);
+            // Regra de Negócio: Média estimada de 4 toneladas de CO2 salvas por hectare/ano em sistemas ILPF
+            const estimativaCarbono = (hectares * 4).toFixed(1);
 
-            caixaResultado.textContent = `⚡ PROCESSANDO: Sua área tem o potencial de sequestrar aproximadamente ${carbonoSequestrado} toneladas de CO2 por ano usando diretrizes sustentáveis!`;
-            caixaResultado.style.color = "#00ffff"; // Ciano Elétrico
+            displayResultado.textContent = `⚡ PROCESSANDO: Sua área pode reter aproximadamente ${estimativaCarbono} toneladas de CO2 por ano adotando agricultura regenerativa!`;
+            displayResultado.style.color = "#00ffff"; // Ciano Cyber-Neon
         });
     }
 }
 
 /**
- * 4. VALIDAÇÃO DO FORMULÁRIO DE CONTATO
+ * 4. VALIDAÇÃO: Formulário Inteligente de Conexão
+ * Intercepta o envio do formulário, higieniza as entradas e simula transmissão segura
  */
-function configurarFormularioContato() {
+function inicializarFormularioContato() {
     const formulario = document.getElementById("formContato");
 
     if (formulario) {
         formulario.addEventListener("submit", (evento) => {
-            evento.preventDefault(); // Impede o recarregamento da página
+            evento.preventDefault(); // Impede que o navegador recarregue a página de forma padrão
 
-            // Coleta os dados digitados para simular o envio
-            const campos = formulario.querySelectorAll("input, textarea");
-            let formularioValido = true;
+            // Captura os campos internos do formulário
+            const camposTexto = formulario.querySelectorAll("input, textarea");
+            let camposValidos = true;
 
-            campos.forEach(campo => {
+            // Verifica se algum campo foi enviado vazio ou apenas com espaços
+            camposTexto.forEach(campo => {
                 if (campo.value.trim() === "") {
-                    formularioValido = false;
+                    camposValidos = false;
                 }
             });
 
-            if (!formularioValido) {
+            if (!camposValidos) {
                 alert("SISTEMA: Preencha todas as coordenadas de cadastro obrigatórias.");
                 return;
             }
 
-            alert("CONEXÃO ESTABELECIDA: Seus dados foram transmitidos com sucesso para a base do Agrinho 2026!");
-            formulario.reset(); // Limpa as caixas de texto
+            // Exibe mensagem de sucesso customizada para o ecossistema Agrinho
+            alert("CONEXÃO ESTABELECIDA: Seus dados foram transmitidos com sucesso para a rede de inovação do Agrinho 2026!");
+            formulario.reset(); // Limpa todas as caixas de texto do formulário
         });
     }
 }
